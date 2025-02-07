@@ -83,7 +83,7 @@ The challenge is based on the **deluxe membership page**, accessible at:
 - Send the captured **POST request** to **Burp Suite Repeater**.
 - Send the request and analyze the response:
 
-![Step 3.1](images/DF-step3.1.png)
+![Step 3.1](images/DF-Step3.1.png)
 
 - We receive an error message: **"Insufficient funds in wallet"**.
 - What if we remove the `paymentMode` value entirely?
