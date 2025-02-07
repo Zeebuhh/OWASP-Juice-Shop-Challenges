@@ -1,8 +1,8 @@
 # **OWASP Juice Shop - CAPTCHA Bypass Challenge**
 
-## **Link to Video:**
+## **Link to Video (german):**
 
-_(Add the link here)_
+https://go.screenpal.com/watch/cTn1IlnheGB
 
 **Disclaimer:** The OWASP Juice Shop is deployed on my local machine for testing purposes.
 
@@ -10,11 +10,11 @@ _(Add the link here)_
 
 ## **Table of Contents**
 
-1. Challenge Description
-2. Procedure
-3. Solution & Explanation
-4. Countermeasures
-5. Disclaimer
+1. [Challenge Description](#1-challenge-description)
+2. [Procedure](#2-procedure)
+3. [Solution & Explanation](#3-solution--explanation)
+4. [Countermeasures](#4-countermeasures)
+5. [Disclaimer](#5-disclaimer)
 
 ---
 
@@ -22,10 +22,14 @@ _(Add the link here)_
 
 - **Name:** CAPTCHA Bypass
 - **Category:** Broken Anti-Automation
-- **Difficulty:** ★★★☆☆ (3 Stars)
+- **Difficulty:** ☆☆☆☆☆ (3 Stars)
 - **Objective:** Submit 10 or more customer feedback entries within 20 seconds.
 - **Hint (Juice Shop):** After finding a CAPTCHA bypass, write a script that automates feedback submission. Alternatively, open multiple browser tabs and submit quickly.
 - **Hint (Developer Akademie):** Use Burp Suite Intruder or write a small Python script to automate the process.
+
+### **What is Broken Anti-Automation?**
+
+Broken Anti-Automation is a security vulnerability that occurs when a web application lacks proper measures to prevent automated attacks, such as bots or script-based abuse. This can lead to issues like brute-force attacks, credential stuffing, spam, or denial-of-service (DoS). Common protections against automation include CAPTCHAs, rate limiting, and behavioral analysis, but if these are missing or poorly implemented, attackers can exploit the system with automated tools.
 
 ---
 
@@ -51,15 +55,15 @@ This guide demonstrates the Burp Suite Intruder approach.
 
 First, we create a dummy feedback entry in the **customer feedback form**.
 
-![Step 1](step1.png)
+![Step 1](images/step1.png)
 
 ### **Step 2: Capture the Request with Burp Suite**
 
 - Enable the **Burp Suite Proxy** and turn on **Intercept**.
 - Submit the customer feedback form on the `/contact` page.
 
-![Step 2.1](step2.1.png)  
-![Step 2.2](step2.2.png)
+![Step 2.1](images/step2.1.png)  
+![Step 2.2](images/step2.2.png)
 
 ### **Step 3: Analyze the Request**
 
@@ -77,7 +81,7 @@ First, we create a dummy feedback entry in the **customer feedback form**.
 
 This means that the CAPTCHA is validated on the client-side and not properly secured server-side.
 
-![Step 3](step3.png)
+![Step 3](images/step3.png)
 
 ### **Step 4: Automate the Submission via Burp Suite Intruder**
 
@@ -86,14 +90,14 @@ This means that the CAPTCHA is validated on the client-side and not properly sec
 - Generate at least **10 identical requests**.
 - Start a **Sniper Attack** with Burp Suite.
 
-![Step 4.1](step4.1.png)
+![Step 4.1](images/step4.1.png)
 
 ### **Step 5: Verify Successful Exploitation**
 
 - The server accepts all requests and returns HTTP **201 Created** responses.
 - The Juice Shop challenge confirms success with a notification and confetti animation.
 
-![Step 4.2](step4.2.png)
+![Step 4.2](images/step4.2.png)
 
 **We have successfully bypassed the CAPTCHA and submitted more than 10 feedback entries in under 20 seconds. This demonstrates a vulnerability where the CAPTCHA protection can be easily circumvented.**
 
