@@ -62,8 +62,8 @@ First, we create a dummy feedback entry in the **customer feedback form**.
 - Enable the **Burp Suite Proxy** and turn on **Intercept**.
 - Submit the customer feedback form on the `/contact` page.
 
-![Step 2.1](images/Step2.1.png)  
-![Step 2.2](images/Step2.2.png)
+![Step 2.1](images-1/Step2.1.png)  
+![Step 2.2](images-1/Step2.2.png)
 
 ### **Step 3: Analyze the Request**
 
@@ -81,7 +81,7 @@ First, we create a dummy feedback entry in the **customer feedback form**.
 
 This means that the CAPTCHA is validated on the client-side and not properly secured server-side.
 
-![Step 3](images/Step3.png)
+![Step 3](images-1/Step3.png)
 
 ### **Step 4: Automate the Submission via Burp Suite Intruder**
 
@@ -90,14 +90,14 @@ This means that the CAPTCHA is validated on the client-side and not properly sec
 - Generate at least **10 identical requests**.
 - Start a **Sniper Attack** with Burp Suite.
 
-![Step 4.1](images/Step4.1.png)
+![Step 4.1](images-1/Step4.1.png)
 
 ### **Step 5: Verify Successful Exploitation**
 
 - The server accepts all requests and returns HTTP **201 Created** responses.
 - The Juice Shop challenge confirms success with a notification and confetti animation.
 
-![Step 4.2](images/Step4.2.png)
+![Step 4.2](images-1/Step4.2.png)
 
 **We have successfully bypassed the CAPTCHA and submitted more than 10 feedback entries in under 20 seconds. This demonstrates a vulnerability where the CAPTCHA protection can be easily circumvented.**
 

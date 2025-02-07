@@ -52,15 +52,15 @@ The challenge is based on the **register form**, accessible at:
 First, we create a dummy user entry in the **register form**.  
 **Important:** Do not press the "Register" button before step 2.
 
-![Step 1](images/CSXSSP-Step1.png)
+![Step 1](images-2/CSXSSP-Step1.png)
 
 ### **Step 2: Capture the Request with Burp Suite**
 
 - Enable **Burp Suite Proxy** and turn on **Intercept**.
 - Submit the register form on the `/register` page.
 
-![Step 2.1](images/CSXSSP-Step2.1.png)  
-![Step 2.2](images/CSXSSP-Step2.2.png)
+![Step 2.1](images-2/CSXSSP-Step2.1.png)  
+![Step 2.2](images-2/CSXSSP-Step2.2.png)
 
 ### **Step 3: Analyze the Request**
 
@@ -68,7 +68,7 @@ First, we create a dummy user entry in the **register form**.
   `http://127.0.0.1:3000/api/Users/`
 - In the **request body**, we see that the email field can be manipulated:
 
-![Step 3](images/CSXSSP-Step3.png)
+![Step 3](images-2/CSXSSP-Step3.png)
 
 ```json
 {
@@ -86,18 +86,18 @@ This indicates that the input is not strictly validated on the client side.
   _(Note: Escape double quotes `"` inside JSON to avoid syntax errors.)_
 - Send the modified request.
 
-![Step 4.1](images/CSXSSP-Step4.1.png)
+![Step 4.1](images-2/CSXSSP-Step4.1.png)
 
 ### **Step 5: Verify Successful Exploitation**
 
 - The server accepts the manipulated **POST request** and returns an **HTTP 201 Created** response.
 
-![Step 4.2](images/CSXSSP-Step4.2.png)
+![Step 4.2](images-2/CSXSSP-Step4.2.png)
 
 - The Juice Shop challenge confirms success with a notification and confetti animation.
 - When logged into the **admin account** and navigating to `/administration`, we can observe the XSS execution:
 
-![Step 4.3](images/CSXSSP-Step4.3.png)
+![Step 4.3](images-2/CSXSSP-Step4.3.png)
 
 **We have successfully bypassed the client-side XSS protection.**
 
