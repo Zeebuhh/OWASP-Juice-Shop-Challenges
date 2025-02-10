@@ -55,7 +55,7 @@ This guide demonstrates the Burp Suite Intruder approach.
 
 First, we create a dummy feedback entry in the **customer feedback form**.
 
-![Step 1](images/Step1.png)
+![Step 1](images-1/Step1.png)
 
 ### **Step 2: Capture the Request with Burp Suite**
 
