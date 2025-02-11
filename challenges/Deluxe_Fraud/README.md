@@ -54,43 +54,43 @@ The challenge is based on the **deluxe membership page**, accessible at:
 
 - After logging into a user account, go to the `/deluxe-membership` page and click on "Become a member".
 
-![Step 1](images/DF-Step1.png)
+![Step 1](images-3/DF-Step1.png)
 
 ### **Step 2: Open DevTools, Modify Button, and Intercept Request**
 
 - Open the Developer Tools in the browser and inspect the **Pay** button element.
 
-![Step 2.1](images/DF-step2.1.png)
+![Step 2.1](images-3/DF-Step2.1.png)
 
 - The button has attributes `disabled="true"` and `mat-button-disabled`. Remove these attributes to enable the button.
 
-![Step 2.2](images/DF-step2.2.png)
+![Step 2.2](images-3/DF-Step2.2.png)
 
 - The Pay button is now enabled and clickable.  
   **Important:** Do not click the button before enabling Burp Suite's **Interceptor**.
 
 - Enable **Intercept** mode in Burp Suite:
 
-![Step 2.3](images/DF-Step2.3.png)  
-![Step 2.4](images/DF-Step2.4.png)
+![Step 2.3](images-3/DF-Step2.3.png)  
+![Step 2.4](images-3/DF-Step2.4.png)
 
 - When we intercept the request with Burp Suite, we capture the following:
 
-![Step 2.5](images/DF-Step2.5.png)
+![Step 2.5](images-3/DF-Step2.5.png)
 
 ### **Step 3: Modify and Send the Request via Repeater**
 
 - Send the captured **POST request** to **Burp Suite Repeater**.
 - Send the request and analyze the response:
 
-![Step 3.1](images/DF-step3.1.png)
+![Step 3.1](images-3/DF-Step3.1.png)
 
 - We receive an error message: **"Insufficient funds in wallet"**.
 - What if we remove the `paymentMode` value entirely?
 
 These are the results:
 
-![Step 3.2](images/DF-Step3.2.png)
+![Step 3.2](images-3/DF-Step3.2.png)
 
 As we can see, **we now have a deluxe membership** simply by bypassing the payment validation. This proves that the application does not correctly validate input before processing transactions.
 

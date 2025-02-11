@@ -45,7 +45,7 @@ Each challenge is stored in the `challenges/` directory with its own `README.md`
 
 ## **3. Challenges**
 
-### **[CAPTCHA Bypass](./challenges/CAPTCHA_bypass/README.md)**
+### **[CAPTCHA Bypass](./challenges/CAPTCHA_Bypass/README.md)**
 
 - **Category:** Broken Anti-Automation
 - **Objective:** Submit multiple customer feedback entries within a short time frame, bypassing CAPTCHA validation.
@@ -77,3 +77,4 @@ Juice Shop is widely used for:
 - **Developer Security Education**
 
 By interacting with Juice Shop, learners get practical exposure to web security flaws in a **safe, controlled environment**.
+ 
